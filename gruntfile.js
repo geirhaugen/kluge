@@ -10,14 +10,14 @@ module.exports = function(grunt) {
               optimization: 2
             },
             files: {
-              "build/css/screen.css": "less/screen.less", // destination file and source file
-              "build/css/styleguide.css": "less/styleguide.less"
+              "build/css/screen.css": "less/Global/screen.less", // destination file and source file
+              "build/css/styleguide.css": "less/Global/styleguide.less"
             }
           }
         },
         watch: {
           styles: {
-            files: ['less/**/*.less', 'ejs/**/*.ejs'], // which files to watch
+            files: ['less/**/*.less', 'Views/**/*.ejs'], // which files to watch
             tasks: ['less', 'ejs:all', 'copy:img', 'copy:gfx', 'copy:js', 'copy:fonts'],
             options: {
               nospawn: true
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         ejs: {
             all: {
                 src: ['*.ejs'],
-                cwd: 'ejs/',
+                cwd: 'Views/',
                 dest: 'build',
                 expand: true,
                 ext: '.html',

@@ -1,0 +1,329 @@
+// ** PROJECT SETTINGS ***
+// ** NITO
+
+// Helpers
+@showBreakPoints   : true;  //Show the breakpoint helper in bottom right
+@debug             : false;  //Show the baseline grid for vertical rhythm
+@showGrid          : false;  //Show background for col classes
+
+// Typography
+@baseLineHeight: 27px;
+@baseFontSize: 16px;
+@baseLineHeightMobile: 24px;
+@baseFontSizeMobile: 14px;
+
+@mainFont: "proxima-nova", helvetica, arial, sans-serif;
+@mainFontLight: "proxima-nova", helvetica, arial, sans-serif;
+@supportFontLight: "BlenderPro-ThinWeb", helvetica, arial, sans-serif;
+@supportFontBold: "BlenderPro-BoldWeb", helvetica, arial, sans-serif;
+@symbolFont: "icomoon";
+
+@fontSize-smallest: 6px;
+@fontSize-smaller:  8px;
+@fontSize-small:    11px;
+@fontSize-base:     16px;
+@fontSize-large:    18px;
+@fontSize-larger:   20px;
+@fontSize-largest:  26px;
+@fontSize-jumbo:    64px;
+
+// Layout elements
+@basePadding: (@baseLineHeight / @baseFontSize) * 1rem;
+@px: 1/@baseFontSize * 1rem;
+
+// Colors
+@colorProfile       : #408060;
+@colorProfileDark   : #263641;
+@colorProfileLight  : #F3F4F5;
+
+@colorSupport       : #263641;
+@colorSupportDark   : red;
+@colorSupportLight  : #4D6979;
+
+@colorNeutral       : #F2F4F3;
+@colorNeutralDark   : #ccc;
+@colorNeutralLight  : red;
+
+@colorBorderLight   :#DDDDDD;
+@colorBorderDark    :#A9AFB3;
+
+@colorText          : #3D4E59;
+@colorTextDark      : #263641;
+@colorEmphasize     : #dd5633;
+@colorLink          : #0073ab;
+
+@green            : #408060;
+@greenDark        : #263641;
+@greenDarkBorder  : #2f4351;
+@red              : #DD5633;
+@blue             : rgb(0, 115, 171);
+@borderColor      : #A9AFB3;
+@greyLight        : #F3F4F5;
+
+
+// Global breakpoints
+// 1px i em = 1/16 =  .0625em
+@breakpointSmall   : 40em;
+@breakpointMedium  : 70em;
+@breakpointLarge   : 80em;
+@maxWidth          : 80em;
+
+
+// ** MIXINS ***
+
+// BREAKPOINTS
+@breakpoint-small-pluss-one: (@breakpointSmall + 1/@baseFontSize);
+@breakpoint-medium-pluss-one: (@breakpointMedium + 1/@baseFontSize);
+@breakpoint-large-pluss-one: (@breakpointLarge + 1/@baseFontSize);
+
+.BP-small(@rules) {
+  @media screen and (max-width: @breakpointSmall) { @rules(); }
+}
+
+.BP-medium(@rules) {
+  @media screen and (min-width: @breakpoint-small-pluss-one) and (max-width: @breakpointMedium) { @rules(); }
+}
+
+.BP-large(@rules) {
+  @media screen and (min-width: @breakpoint-medium-pluss-one) { @rules(); }
+}
+
+.BP-medium-down(@rules) {
+  @media screen and (max-width: @breakpointMedium) { @rules(); }
+}
+
+.BP-medium-up(@rules) {
+  @media screen and (min-width: @breakpoint-small-pluss-one) { @rules(); }
+}
+
+@small: ~"  (max-width: 40em)";
+@medium: ~"  (min-width: 40.0625em) and (max-width: 60em)";
+@large: ~"  (min-width: 60.0625em)";
+@medium-up: ~"  (min-width: 40.0625em)";
+@medium-down: ~"  (max-width: 60em)";
+@media-medium: ~"@media screen and (min-width: 60.0625em)";
+
+// FONT IMPORT
+// Font import if using local font files
+.fontimport(@filename, @fontweight, @fontstyle){
+  @font-face {
+    font-family: "@{filename}";
+    src: url('/UI/fonts/@{filename}.eot');
+    src: url('/UI/fonts/@{filename}.eot?#iefix') format('embedded-opentype'),
+    url('/UI/fonts/@{filename}.woff') format('woff'),
+    url('/UI/fonts/@{filename}.ttf') format('truetype'),
+    url('/UI/fonts/@{filename}.svg#UbuntuItalic') format('svg');
+    font-weight: @fontweight;
+    font-style: @fontstyle;
+  }
+}
+
+
+// Establishing font size and baseline
+.establishTypography(){
+  font-family: @mainFont, arial, sans-serif;
+  font-size: (@baseFontSize / 16) * 1em;
+  line-height: (@baseLineHeight / @baseFontSize) * 1em;
+  color: @colorText;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @media @medium-down{ // SMALL BREAKPOINT
+    font-size: (@baseFontSizeMobile / 16) * 1em;
+    line-height: (@baseLineHeightMobile / @baseFontSizeMobile) * 1em;
+  }
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and ( min-device-pixel-ratio: 1.25),
+  only screen and ( min-resolution: 200dpi),
+  only screen and ( min-resolution: 1.25dppx)
+  {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+// VERTICAL RHYTHM
+// Define font size and number of @lineHeight in vertical ryhthm units
+.font(@size, @lineHeight: 1){
+  font-size: @size/@baseFontSize * 1rem;
+  line-height: (@baseLineHeight/@baseFontSize) * @lineHeight * 1rem;
+}
+
+// STANDARD CLEARFIX TO CLEAR FLOATS
+.clearfix(){
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// CONTAINER
+// Adds max widths and padding to an element. Wrap a row in a container to make a grid
+.container(@padded: @basePadding){
+  max-width: @maxWidth;
+  margin: 0 auto;
+  padding: 0 @padded;
+  @media @small{
+    padding-left: @basePadding;
+    padding-right: @basePadding;
+  }
+  .clearfix();
+}
+
+// TRAILER
+// Adds 1 baselineunit margin after an element
+.trailer(@numberOfUnits: 1){
+  margin-bottom: 1em;
+  margin-bottom: (@baseLineHeight/@baseFontSize) * @numberOfUnits * 1rem;
+  @media @small{ // SMALL BREAKPOINT
+    margin-bottom: (@baseLineHeightMobile/@baseFontSizeMobile) * 1rem;
+  }
+}
+
+// TRAILING BORDER
+// Adds 1px border and a baselineunit padding and margin after an element
+.trailer-border(@numberOfUnits: 1, @currentBorderColor: @colorBorderLight){
+  margin-bottom: (@baseLineHeight/@baseFontSize) * @numberOfUnits * 1rem;
+  padding-bottom: ((@baseLineHeight/@baseFontSize) * @numberOfUnits * 1rem) - 0.0625em;
+  border-bottom: 0.0625em solid @currentBorderColor;
+  @media @small { // SMALL BREAKPOINT
+    margin-bottom: (@baseLineHeightMobile/@baseFontSizeMobile) * 1rem;
+  }
+}
+
+// Border
+
+.border(@color){
+  border: 1px solid @color;
+}
+
+// Code helpers
+// ****************************
+.baseline() when (@debug = true){
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.0)), color-stop(95%, rgba(255,255,255,.0)), color-stop(95%, #4affff), to(#4affff));
+  background: -moz-linear-gradient(top, #fcfcfc, #fcfcfc 95%, #4affff 95%, #4affff);
+  border-width: 1px 1px 0 1px;
+  border-color: #4affff;
+  border-style: solid;
+  @media @medium-up{
+    background-size: auto @baseLineHeight;
+  }
+  @media @small{
+    background-size: auto @baseLineHeightMobile;
+  }
+}
+.displayGrid() when (@showGrid = true){
+  border-width: 0 1px 0 1px ;
+  border-color: #4affff;
+  border-style: solid;
+}
+[class*=col-],
+.rows > *{
+  .displayGrid();
+}
+
+
+[class*=container]{
+  .baseline();
+}
+
+
+
+// Inject a small text  telling you wich breakpoint is the current one. Change body to the element you want to use
+body{
+  .helper(@showBreakPoints);
+}
+
+.helper(@debug) when (@debug = true){
+  &:before{
+    z-index: 400000;
+    color: #4affff;
+    text-align: right;
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+    padding: 3px 10px;
+    border-left: 1px solid #4affff;
+    border-radius: 5px 0 0 5px;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 1;
+    @media screen and (max-width: @breakpointSmall){
+      content: "small";
+    }
+    @media screen and (min-width: @breakpointSmall) and (max-width: @breakpointMedium){
+      content: "medium";
+    }
+    @media screen and (min-width: @breakpointMedium){
+      content: "large";
+    }
+  }
+}
+
+// Visibility for various sizes
+
+.hide-for-small() {
+  @media @small{
+    display: none !important;
+  }
+}
+
+.hide-for-medium() {
+  @media @medium{
+    display: none !important;
+  }
+}
+
+.hide-for-large() {
+  @media @large{
+    display: none !important;
+  }
+}
+
+
+/////////////////
+// Semantic.gs // for LESS: http://lesscss.org/
+/////////////////
+
+// Defaults which you can freely override
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+
+// Utility variable � you should never need to modify this
+@gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+// Set @total-width to 100% for a fluid layout
+//@total-width: @gridsystem-width;
+@total-width: 100%;
+
+// Uncomment these two lines and the star-hack width/margin lines below to enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// @min-width: 960;
+// @correction: 0.5 / @min-width * 100 * 1%;
+
+
+//////////
+// GRID //
+//////////
+
+
+.row(@columns:@columns) {
+  display: block;
+  width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
+  margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
+  // *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
+  // *margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1)-@correction;
+  .clearfix;
+}
+.column(@x,@columns:@columns, @position: left) {
+  display: inline;
+  float: @position;
+  width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+  margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width);
+
+}
+.push(@offset:1) {
+  margin-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}
+.pull(@offset:1) {
+  margin-right: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}
