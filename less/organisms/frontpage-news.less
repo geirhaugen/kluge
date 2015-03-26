@@ -1,0 +1,19 @@
+.frontpage-news{
+  .container;
+  .BP-medium-up({ // @MEDIUM UP BREAKPOINT
+    display: flex;
+  });
+  &__article{
+    background-color: white;
+    .BP-medium-up({ // @MEDIUM UP BREAKPOINT
+      width: 100/3%;
+    });
+    margin-bottom: @basePadding;
+  }
+  &__title{
+    margin: @basePadding/3;
+  }
+  &__img{
+    display: block;
+  }
+}

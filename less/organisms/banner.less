@@ -1,0 +1,33 @@
+.banner{
+  position: relative;
+  &__container{
+    .container;
+    .BP-medium-up({ // @MEDIUM UP BREAKPOINT
+      position: absolute;
+      top:0;
+      left:0;
+      bottom:0;
+      right:0;
+    });
+  }
+  &__content{
+    right:@basePadding;
+    max-height: @baseLineHeight*6;
+    max-width: 450px;
+    background: white;
+    transition: box-shadow 1s;
+    .BP-medium-up({ // @MEDIUM UP BREAKPOINT
+      padding: @basePadding;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    });
+    &__title{
+      font-family: @mainFontLight ;
+      .font(28px, 1);
+    }
+    &:hover{
+      box-shadow: 0 0 10px rgba(0,0,0,.2);
+    }
+  }
+}

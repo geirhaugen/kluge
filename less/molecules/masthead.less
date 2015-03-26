@@ -1,0 +1,28 @@
+.masthead{
+  .container;
+  position: relative;
+  &__logo{
+    display: block;
+    max-width: 386px;
+    &--small{
+      .hide-for-large;
+    }
+    &--large{
+      .hide-for-small;
+      .hide-for-medium;
+    }
+    .BP-medium-down({ // SMALL BREAKPOINT
+      max-width: 90px;
+    });
+  }
+  &__title{
+    display: none;
+  }
+  &__tools{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    .hide-for-small;
+    .hide-for-medium;
+  }
+}

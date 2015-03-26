@@ -1,0 +1,15 @@
+{
+    "name": "NITO",
+    "version": "0.0.1",
+    "description": "NITO framework",
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "grunt-contrib-copy": "latest",
+        "grunt-contrib-less": "~0.11.0",
+        "grunt-contrib-watch": "~0.6.1",
+        "grunt-notify": "latest",
+        "jit-grunt": "~0.7.0",
+        "grunt-ejs-locals": "latest",
+        "grunt-browser-sync": "2.0.0"
+    }
+}

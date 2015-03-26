@@ -1,0 +1,170 @@
+@import "atoms/settings";
+@import "molecules/markup";
+body{
+  overflow-x: hidden;
+}
+.html-element{
+
+  & + .html-element{
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+  }
+  &:last-child{
+
+  }
+  //border-bottom: 1px dashed grey;
+  transition: background 1s ease-out, padding-top .5s ease-out, padding-bottom .5s ease-out, box-shadow .5s ease-out;
+  clear: both;
+  position: relative;
+  overflow: hidden;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  & > *:nth-child(2){
+    transition: all .5s ease-out;
+  }
+  .markup{
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX();
+    transform: translateX(100%);
+    transition: all .5s ease-out;
+    top:0;
+    bottom:0;
+    overflow-y: auto;
+    z-index: 99;
+    background: #f5f5f5;
+    @media screen and (max-width: 800px){
+      display: none;
+    }
+    &:selected{
+      background: black;
+      color: white;
+    }
+  }
+  &.activated{
+    //background: #f3f3f3;
+    box-shadow: 0 0 10px rgba(0,0,0,.2) inset;
+    //border-top:1px solid #d9d9d9;
+    padding-top: @basePadding;
+    padding-bottom: @basePadding;
+    & > *:nth-child(2){
+      -webkit-transform: translateX(-20%);
+      -moz-transform: translateX(-20%);
+      -ms-transform: translateX(-20%);
+      -o-transform: translateX(-20%);
+      transform: translateX(-20%);
+    }
+    & > .markup{
+      -webkit-transform: translateX(0%);
+      -moz-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+      -o-transform: translateX(0%);
+      transform: translateX(0%);
+      box-shadow: 0 0 10px rgba(0,0,0, 0.2);
+    }
+  }
+  &:not(.activated){
+    opacity: 1;
+  }
+}
+
+pre.prettyprint{
+  border: 0 !important;
+}
+
+.separated{
+  border-bottom: 1px solid @borderColor;
+  padding-bottom: @basePadding*2;
+}
+
+.styleguide-tools{
+  position: absolute;
+  left: ~"calc(100% - 28px)";
+  width:130px;
+  top: 0;
+  z-index: 100;
+
+  transition: all .3s ease-out;
+  background-image: url(../gfx/cog.svg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 10%;
+  padding-left: 30px;
+  .activated &{
+    left:  ~"calc(100% - 130px)";
+  }
+  &:hover{
+    left:  ~"calc(100% - 130px)";
+  }
+  @media screen and (max-width: 800px){
+    display: none;
+  }
+}
+
+.helper-toggler{
+  //top: @baseLineHeight;
+}
+.html-toggler{
+  &:before{
+    content:"Vis ";
+    .activated &{
+      content: "Skjul ";
+    }
+  }
+}
+
+.html-toggler,
+.helper-toggler{
+  border:0;
+  z-index: 100;
+  outline :0;
+  color: grey;
+  font-size: 12px;
+  background-color: transparent;
+  text-align: right;
+  padding: 0;
+  &:hover{
+    text-decoration: underline;
+  }
+  @media screen and (max-width: 800px){
+    display: none;
+  }
+
+}
+//Colors
+
+//Color mixin for styleguides
+.colorBoxes(@colorName){
+  background: @colorName ;
+  color:white;
+  &:after{
+    content: "@{colorName}";
+  }
+}
+
+[class*=colorbox]{
+  padding: @basePadding;
+}
+.colorbox{
+  &Green{
+    .colorBoxes(@green);
+  }
+  &GreenDark{
+    .colorBoxes(@greenDark);
+  }
+  &GreenDarkBorder{
+    .colorBoxes(@greenDarkBorder);
+  }
+  &Red{
+    .colorBoxes(@red);
+  }
+  &Blue{
+    .colorBoxes(@blue);
+  }
+}
+
