@@ -81,14 +81,15 @@ module.exports = function(grunt) {
                     "title" : 'testtittel',
                     "frontpage" : [
                         '_content/mainheader',
-                        '_content/banner.ejs',
+                        '_content/banner',
                         '_content/article',
                         '_content/frontpageNews',
+                        '_content/grid',
                         '_content/mainFooter'
                     ],
-                    "course" :[
+                    "employees" :[
                         '_content/mainheader',
-                        '_content/course',
+                        '_content/employees',
                         '_content/mainFooter'
                     ],
                     "styleguidemodules" : [

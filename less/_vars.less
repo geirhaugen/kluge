@@ -7,66 +7,62 @@
 @showGrid          : false;  //Show background for col classes
 
 // Typography
-@baseLineHeight: 27px;
-@baseFontSize: 16px;
-@baseLineHeightMobile: 24px;
-@baseFontSizeMobile: 14px;
+@baseLineHeight: 36px;
+@baseFontSize: 24px;
+@baseLineHeightMobile: 27px;
+@baseFontSizeMobile: 18px;
 
-@mainFont: "proxima-nova", helvetica, arial, sans-serif;
-@mainFontLight: "proxima-nova", helvetica, arial, sans-serif;
-@supportFontLight: "BlenderPro-ThinWeb", helvetica, arial, sans-serif;
-@supportFontBold: "BlenderPro-BoldWeb", helvetica, arial, sans-serif;
+@mainFont: helvetica, arial, sans-serif;
+@mainFontLight: helvetica, arial, sans-serif;
+@supportFontLight: helvetica, arial, sans-serif;
+@supportFontBold: helvetica, arial, sans-serif;
 @symbolFont: "icomoon";
 
-@fontSize-smallest: 6px;
-@fontSize-smaller:  8px;
-@fontSize-small:    11px;
-@fontSize-base:     16px;
-@fontSize-large:    18px;
-@fontSize-larger:   20px;
-@fontSize-largest:  26px;
-@fontSize-jumbo:    64px;
+@fontSize-smallest: 10px;
+@fontSize-smaller:  @baseFontSize*0.5;
+@fontSize-small:    @baseFontSize*0.75;
+@fontSize-base:     @baseFontSize;
+@fontSize-large:    @baseFontSize*1.5;
+@fontSize-larger:   @baseFontSize*2;
+@fontSize-largest:  @baseFontSize*2.5;
+@fontSize-jumbo:    @baseFontSize*3;
 
 // Layout elements
 @basePadding: (@baseLineHeight / @baseFontSize) * 1rem;
 @px: 1/@baseFontSize * 1rem;
 
 // Colors
-@colorProfile       : #408060;
-@colorProfileDark   : #263641;
-@colorProfileLight  : #F3F4F5;
+// KLUGE
 
-@colorSupport       : #263641;
-@colorSupportDark   : red;
-@colorSupportLight  : #4D6979;
+@colorTangerine : #FFC700;
+@colorTangerineDark : #c99100;
 
-@colorNeutral       : #F2F4F3;
-@colorNeutralDark   : #ccc;
-@colorNeutralLight  : red;
+@colorCorn      : #FFF7D9;
+@colorZorba     : #9E9791;
+@colorJudge     : #5D5248;
+@colorGondola   : #363636;
+@colorBokara    : #25211D;
+
+@colorProfile       : @colorTangerine;
+@colorProfileDark   : @colorTangerine;
+@colorProfileLight  : @colorTangerine;
+
+@colorNeutral       : @colorZorba;
 
 @colorBorderLight   :#DDDDDD;
 @colorBorderDark    :#A9AFB3;
 
-@colorText          : #3D4E59;
-@colorTextDark      : #263641;
-@colorEmphasize     : #dd5633;
-@colorLink          : #0073ab;
-
-@green            : #408060;
-@greenDark        : #263641;
-@greenDarkBorder  : #2f4351;
-@red              : #DD5633;
-@blue             : rgb(0, 115, 171);
-@borderColor      : #A9AFB3;
-@greyLight        : #F3F4F5;
-
+@colorText          : @colorJudge;
+@colorTextDark      : black;
+@colorEmphasize     : @colorTangerine;
+@colorLink          : @colorJudge;
 
 // Global breakpoints
 // 1px i em = 1/16 =  .0625em
 @breakpointSmall   : 40em;
-@breakpointMedium  : 70em;
-@breakpointLarge   : 80em;
-@maxWidth          : 80em;
+@breakpointMedium  : 50em;
+@breakpointLarge   : 60em;
+@maxWidth          : 66.66666666666667em;
 
 
 // ** MIXINS ***
@@ -76,31 +72,12 @@
 @breakpoint-medium-pluss-one: (@breakpointMedium + 1/@baseFontSize);
 @breakpoint-large-pluss-one: (@breakpointLarge + 1/@baseFontSize);
 
-.BP-small(@rules) {
-  @media screen and (max-width: @breakpointSmall) { @rules(); }
-}
-
-.BP-medium(@rules) {
-  @media screen and (min-width: @breakpoint-small-pluss-one) and (max-width: @breakpointMedium) { @rules(); }
-}
-
-.BP-large(@rules) {
-  @media screen and (min-width: @breakpoint-medium-pluss-one) { @rules(); }
-}
-
-.BP-medium-down(@rules) {
-  @media screen and (max-width: @breakpointMedium) { @rules(); }
-}
-
-.BP-medium-up(@rules) {
-  @media screen and (min-width: @breakpoint-small-pluss-one) { @rules(); }
-}
 
 @small: ~"  (max-width: 40em)";
-@medium: ~"  (min-width: 40.0625em) and (max-width: 60em)";
-@large: ~"  (min-width: 60.0625em)";
+@medium: ~"  (min-width: 40.0625em) and (max-width: 50em)";
+@large: ~"  (min-width: 50.0625em)";
 @medium-up: ~"  (min-width: 40.0625em)";
-@medium-down: ~"  (max-width: 60em)";
+@medium-down: ~"  (max-width: 50em)";
 @media-medium: ~"@media screen and (min-width: 60.0625em)";
 
 // FONT IMPORT
@@ -121,7 +98,7 @@
 
 // Establishing font size and baseline
 .establishTypography(){
-  font-family: @mainFont, arial, sans-serif;
+  font-family: @mainFont;
   font-size: (@baseFontSize / 16) * 1em;
   line-height: (@baseLineHeight / @baseFontSize) * 1em;
   color: @colorText;
@@ -162,10 +139,10 @@
 .container(@padded: @basePadding){
   max-width: @maxWidth;
   margin: 0 auto;
-  padding: 0 @padded;
+  padding: 0 @basePadding;
   @media @small{
-    padding-left: @basePadding;
-    padding-right: @basePadding;
+    padding-left: @basePadding/2;
+    padding-right: @basePadding/2;
   }
   .clearfix();
 }
@@ -223,7 +200,7 @@
 }
 
 
-[class*=container]{
+[class*=wrapper]{
   .baseline();
 }
 
@@ -285,9 +262,9 @@ body{
 /////////////////
 
 // Defaults which you can freely override
-@column-width: 60;
+@column-width: 180;
 @gutter-width: 20;
-@columns: 12;
+@columns: 8;
 
 // Utility variable � you should never need to modify this
 @gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;

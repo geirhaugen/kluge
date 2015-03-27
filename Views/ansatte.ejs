@@ -1,0 +1,7 @@
+<% layout('_layouts/default') -%>
+<!-- Each module defined in gruntfile -->
+<% for(var i=0; i<employees.length; i++) {%>
+
+<%- partial(employees[i]) %>
+
+<% } %>

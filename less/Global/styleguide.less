@@ -1,5 +1,5 @@
 @import "../_vars";
-@import "molecules/markup";
+@import "utility/markup";
 body{
   overflow-x: hidden;
 }
@@ -78,7 +78,7 @@ pre.prettyprint{
 }
 
 .separated{
-  border-bottom: 1px solid @borderColor;
+  border-bottom: 1px solid @colorBorderLight;
   padding-bottom: @basePadding*2;
 }
 
@@ -150,21 +150,5 @@ pre.prettyprint{
 [class*=colorbox]{
   padding: @basePadding;
 }
-.colorbox{
-  &Green{
-    .colorBoxes(@green);
-  }
-  &GreenDark{
-    .colorBoxes(@greenDark);
-  }
-  &GreenDarkBorder{
-    .colorBoxes(@greenDarkBorder);
-  }
-  &Red{
-    .colorBoxes(@red);
-  }
-  &Blue{
-    .colorBoxes(@blue);
-  }
-}
+
 

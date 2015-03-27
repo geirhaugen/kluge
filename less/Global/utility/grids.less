@@ -1,0 +1,100 @@
+.wrapper{
+  //.container(0);
+}
+
+.col-one{
+  .column(1);
+}
+.col-two{
+  .column(2);
+}
+
+.col-three{
+  .column(3);
+}
+.col-four{
+  .column(4);
+}
+
+.col-five{
+  .column(5);
+}
+
+.col-six{
+  .column(6);
+}
+
+.col-eight{
+  .column(8);
+}
+
+
+[class*=col]{
+  background: @colorCorn;
+  .trailer();
+}
+
+/*
+
+@media @medium-up{ // @MEDIUM UP BREAKPOINT
+  [class*=col]{
+    margin-right: 1%;
+    float: left;
+    background: @colorCorn;
+    .trailer();
+    &.last{
+      & + [class*=col]{
+        clear: left;
+      }
+    }
+  }
+  .col-one{
+    width: (100/@columns * 1%) - 1%;
+    &.last{
+      width: (100/@columns * 1%);
+    }
+  }
+  .col-two{
+    width: (100/@columns * 2%) - 1%;
+    &.last{
+      width: (100/@columns * 2%);
+    }
+  }
+  .col-three{
+    width: (100/@columns * 3%) - 1%;
+    &.last{
+      width: (100/@columns * 3%);
+    }
+  }
+  .col-four{
+    width: (100/@columns * 4%) - 1%;
+    &.last{
+      width: (100/@columns * 4%);
+    }
+  }
+  .col-five{
+    width: (100/@columns * 5%) - 1%;
+    &.last{
+      width: (100/@columns * 5%);
+    }
+  }
+  .col-six{
+    width: (100/@columns * 6%) - 1%;
+    &.last{
+      width: (100/@columns * 6%);
+    }
+  }
+  .col-eight{
+    width: (100/@columns * 8%) - 1%;
+    &.last{
+      width: (100/@columns * 8%);
+    }
+  }
+  .last{
+    float:right;
+    margin-right: 0;
+  }
+}
+*/
+
+

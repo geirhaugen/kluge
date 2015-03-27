@@ -1,0 +1,95 @@
+.b-filter{
+  @media @large{
+    .column(2, 10);
+  }
+  @media @medium-down{
+      display: none;
+  }
+}
+
+.b-filter__list{
+  list-style-type: none;
+  padding-left: 0;
+  .font(@fontSize-small);
+  @media @small{
+      -webkit-columns: 2;
+  }
+  @media @medium{
+      -webkit-columns: 3;
+  }
+}
+
+
+.b-filter__listitem{
+  input{
+    position: absolute;
+    left: -9999px;
+
+  }
+  margin-bottom: @baseLineHeight/4;
+  .label{
+    display: inline-block;
+    position: relative;
+    padding-left: @basePadding/2;
+    padding-right: 15px;
+    &:before{
+      content:"";
+      display: block;
+      top:5px;
+      bottom: 5px;
+      left: 0px;
+      background-color: @colorProfile;
+      background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerine), color-stop(70%, @colorTangerine), color-stop(70%, white), to(white));
+      background-size: auto 36px;
+      width: 6px;
+      position: absolute;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -ms-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+      z-index: -1;
+      @media @medium-down{
+        background-size: auto 27px;
+      }
+    }
+
+  }
+  input:focus + label{
+    &:before{
+      background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerineDark), color-stop(70%, @colorTangerineDark), color-stop(70%, white), to(white));
+      background-size: auto 36px;
+      @media @medium-down{
+        background-size: auto 27px;
+      }
+    }
+  }
+  &:not(.b-filter__listitem--disabled){
+    label{
+      &:hover{
+        cursor: pointer;
+        &:before{
+          width:100%;
+        }
+      }
+    }
+    input:checked + .label{
+      color: white;
+      &:before{
+        width:100%;
+        background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerineDark), color-stop(70%, @colorTangerineDark), color-stop(70%, white), to(white));
+        background-size: auto 36px;
+        @media @medium-down{
+          background-size: auto 27px;
+        }
+      }
+    }
+  }
+}
+
+.b-filter__listitem--disabled{
+  opacity: .5;
+  .label:before{
+    background: @colorJudge;
+  }
+}

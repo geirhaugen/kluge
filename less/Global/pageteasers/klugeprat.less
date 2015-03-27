@@ -1,0 +1,17 @@
+.pt-klugeprat__subjects{
+  list-style-type: none;
+  padding-left: 0;
+  .font(@fontSize-small);
+  li{
+    display: inline-block;
+    &:not(:last-child):after{
+      content: " |";
+    }
+    a{
+      text-decoration: underline;
+    }
+  }
+}
+.pt-klugeprat__title{
+  margin-bottom: 0;
+}

@@ -3,29 +3,28 @@
     <div class="masthead">
         <div class="masthead__logo">
             <a href="index.html" class="blockLink">
-                <h1 class="masthead__title" aria-hidden="false">NITO</h1>
-                <img src="../gfx/logo-nito-tagline.svg" class="masthead__logo--large">
-                <img src="../gfx/logo-nito.svg" class="masthead__logo--small">
+                <h1 class="masthead__title" aria-hidden="false">KLUGE</h1>
+                <img src="gfx/Kluge_logo.png">
             </a>
         </div>
-
-        <div class="masthead__tools">
-            <div class="search-field" role="search">
-                <input type="search"><input type="button" value="Søk" class="btn btn--grey">
-            </div>
-            <a href="login.html" class="btn btn--red">Logg inn</a>
-        </div>
     </div>
+
+    <nav class="header-subnav" aria-labelledby="menuToggler" role="navigation">
+        <ul id="header-subnav__list" class="header-subnav__list js-mainNavigationList" role="menubar" aria-hidden="true">
+            <li class="header-subnav__listitem" role="menuitem"><a class="header-subnav__link" href="">Aktuelt</a></li>
+            <li class="header-subnav__listitem current" role="menuitem"><a class="header-subnav__link" href="">Om Kluge</a></li>
+            <li class="header-subnav__listitem" role="menuitem"><a class="header-subnav__link" href="">Søk</a></li>
+        </ul>
+    </nav>
+
 
     <nav class="header-nav" aria-labelledby="menuToggler" role="navigation">
         <button id="menuToggler" class="btn btn--menuToggler js-btn-menuToggler" role="button" aria-controls="main-nav__list" aria-haspopup="true">Meny</button>
         <ul id="header-nav__list" class="header-nav__list js-mainNavigationList" role="menubar" aria-hidden="true">
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="">LØNN</a></li>
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link"  href="">MEDLEM</a></li>
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link"  href="course.html">KURS OG ARRANGEMENTER</a></li>
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link"  href="">FAGMILJØER</a></li>
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link"  href="">AVDELINGER</a></li>
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link"  href="">KAMPSAKER</a></li>
+            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="ansatte.html">Folk</a></li>
+            <li class="header-nav__listitem current" role="menuitem"><a class="header-nav__link" href="">Spesialisering</a></li>
+            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="">Karriere</a></li>
+            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="">Klugeprat</a></li>
         </ul>
     </nav>
 </header>

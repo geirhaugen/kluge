@@ -1,0 +1,84 @@
+
+
+<main class="p-employees">
+    <div class="banner banner--search">
+        <div class="banner__container">
+            <div class="banner__content banner__content--search">
+                <input type="text" id="search_input" class="banner__input">
+                <button class="btn btn--search">Søk</button>
+            </div>
+        </div>
+    </div>
+    <div class="p-employee__filters">
+        <div class="p-employees__filter b-filter">
+            <h3>Kontor</h3>
+            <ul class="b-filter b-filter__list">
+               <li class="b-filter__listitem"><input type="checkbox" id="nr11"><label for="nr11" class="label">Stavanger</label></li>
+               <li class="b-filter__listitem"><input type="checkbox" id="nr12"><label for="nr12" class="label">Oslo</label></li>
+               <li class="b-filter__listitem"><input type="checkbox" id="nr13"><label for="nr13" class="label">Bergen</label></li>
+               <li class="b-filter__listitem"><input type="checkbox" id="nr14"><label for="nr14" class="label">Hamar</label></li>
+            </ul>
+        </div>
+        <div class="p-employees__filter b-filter">
+            <h3>Bransjer</h3>
+            <ul class="b-filter__list">
+                <li class="b-filter__listitem"><input type="checkbox" id="nr1"><label for="nr1" class="label">Bank og finansiering</label></li>
+                <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr2" disabled><label for="nr2" class="label">Bygg og enterprise</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr3"><label for="nr3" class="label">Energi</label></li>
+                <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr4"><label for="nr4" class="label">Offentlig sektor</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr5"><label for="nr5" class="label">Olje og energi</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr6"><label for="nr6" class="label">Shipping</label></li>
+            </ul>
+        </div>
+        <div class="p-employees__filter b-filter">
+            <h3>Stilling</h3>
+            <ul class="b-filter__list">
+                <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr21"><label for="nr21" class="label">Stilling</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr22"><label for="nr22" class="label">Partner</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr23"><label for="nr23" class="label">Assosiert partner</label></li>
+                <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr24"><label for="nr24" class="label">Senior advokat</label></li>
+                <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr25"><label for="nr25" class="label">Advokat</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr26"><label for="nr26" class="label">Advokatfullmektig</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr27"><label for="nr27" class="label">Juridisk assistent</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr28"><label for="nr28" class="label">dministrasjon</label></li>
+            </ul>
+        </div>
+        <div class="p-employees__filter b-filter">
+            <h3>Fag</h3>
+            <ul class="b-filter__list">
+                <li class="b-filter__listitem"><input type="checkbox" id="nr41"><label for="nr41" class="label">Corporate/M&A</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr42"><label for="nr42" class="label">Bank og finansiering</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr43"><label for="nr43" class="label">Børs-, verdipapirrett og Corporate governance</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr44"><label for="nr44" class="label">Bygg og entreprise</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr45"><label for="nr45" class="label">Skatt og avgifter</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr46"><label for="nr46" class="label">IKT og immaterialrett</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr47"><label for="nr47" class="label">Offentlig sektor</label></li>
+            </ul>
+        </div>
+        <div class="p-employees__filter b-filter">
+            <ul class="b-filter__list">
+                <li class="b-filter__listitem"><input type="checkbox" id="nr48"><label for="nr48" class="label">Gransking</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr49"><label for="nr49" class="label">Tvisteløsning, mekling og prosedyre</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr50"><label for="nr50" class="label">Produktansvar</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr51"><label for="nr51" class="label">Shipping</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr52"><label for="nr52" class="label">Fast eiendom</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr53"><label for="nr53" class="label">EØS-/ konkurranserett</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr54"><label for="nr54" class="label">Energi</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr55"><label for="nr55" class="label">Arbeidsrett</label></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="employee-grid">
+       <h3>14 Ansatte</h3>
+        <div class="employee-grid__container" id="search_list">
+            <%- partial('pageteaserPerson2.ejs') %>
+            <%- partial('pageteaserPerson.ejs') %>
+            <%- partial('pageteaserPerson.ejs') %>
+            <%- partial('pageteaserPerson2.ejs') %>
+            <%- partial('pageteaserPerson2.ejs') %>
+            <%- partial('pageteaserPerson.ejs') %>
+        </div>
+    </section>
+    <%- partial('pageteaserKlugeprat.ejs') %>
+</main>

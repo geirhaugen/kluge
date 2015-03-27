@@ -1,0 +1,49 @@
+.banner{
+  position: relative;
+  min-height: 300px;
+  @media @small{
+    min-height: 100px;
+  }
+}
+
+.banner__image{
+  display: block;
+}
+
+.banner__container{
+  width: 100%;
+  max-width: @maxWidth;
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.banner__content{
+  width:100%;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: @basePadding;
+  @media @small{
+      padding: 0 @basePadding/2;
+  }
+}
+
+.banner__content--search{
+  display: flex;
+  justify-content: center;
+  @media @medium-up{
+    padding: 0 25%;
+  }
+  margin: 0 auto;
+  input[type=text]{
+    border-right: 0;
+    width:250px;
+    flex-grow: 1;
+  }
+}
