@@ -2,7 +2,7 @@
 // ** NITO
 
 // Helpers
-@showBreakPoints   : true;  //Show the breakpoint helper in bottom right
+@showBreakPoints   : false;  //Show the breakpoint helper in bottom right
 @debug             : false;  //Show the baseline grid for vertical rhythm
 @showGrid          : false;  //Show background for col classes
 
@@ -121,6 +121,7 @@
 // VERTICAL RHYTHM
 // Define font size and number of @lineHeight in vertical ryhthm units
 .font(@size, @lineHeight: 1){
+  font-size: @size;
   font-size: @size/@baseFontSize * 1rem;
   line-height: (@baseLineHeight/@baseFontSize) * @lineHeight * 1rem;
 }
@@ -134,12 +135,19 @@
   }
 }
 
+.ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
 // CONTAINER
 // Adds max widths and padding to an element. Wrap a row in a container to make a grid
 .container(@padded: @basePadding){
   max-width: @maxWidth;
   margin: 0 auto;
-  padding: 0 @basePadding;
+  padding: 0 @padded;
   @media @small{
     padding-left: @basePadding/2;
     padding-right: @basePadding/2;
@@ -183,21 +191,16 @@
   border-color: #4affff;
   border-style: solid;
   @media @medium-up{
-    background-size: auto @baseLineHeight;
+    background-size: auto @baseLineHeight/2;
   }
   @media @small{
-    background-size: auto @baseLineHeightMobile;
+    background-size: auto @baseLineHeightMobile/2;
   }
 }
 .displayGrid() when (@showGrid = true){
-  border-width: 0 1px 0 1px ;
-  border-color: #4affff;
-  border-style: solid;
+
 }
-[class*=col-],
-.rows > *{
-  .displayGrid();
-}
+
 
 
 [class*=wrapper]{
@@ -287,8 +290,6 @@ body{
   display: block;
   width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
   margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
-  // *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
-  // *margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1)-@correction;
   .clearfix;
 }
 .column(@x,@columns:@columns, @position: left) {

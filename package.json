@@ -10,6 +10,7 @@
         "grunt-notify": "latest",
         "jit-grunt": "~0.7.0",
         "grunt-ejs-locals": "latest",
-        "grunt-browser-sync": "2.0.0"
+        "grunt-browser-sync": "2.0.0",
+        "grunt-autoprefixer": "latest"
     }
 }

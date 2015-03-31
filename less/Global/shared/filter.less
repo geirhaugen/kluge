@@ -1,10 +1,30 @@
+.b-filters{
+  @media @large{
+    display: flex;
+  }
+}
+
 .b-filter{
   @media @large{
-    .column(2, 10);
+    width:20%;
+    flex-grow: 1;
   }
   @media @medium-down{
-      display: none;
+    h3{
+      position: relative;
+      border-top: 1px solid @colorBorderLight;
+      &:after{
+        content: "";
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px  solid @colorBorderLight;
+        position: absolute;
+        right:@basePadding;
+        top:10px;
+      }
+    }
   }
+
 }
 
 .b-filter__list{
@@ -12,7 +32,13 @@
   padding-left: 0;
   .font(@fontSize-small);
   @media @small{
-      -webkit-columns: 2;
+    overflow: hidden;
+    max-height: 0;
+    transition: all .5s;
+    -webkit-columns: 2;
+    &.activated{
+      max-height: 1000px;
+    }
   }
   @media @medium{
       -webkit-columns: 3;

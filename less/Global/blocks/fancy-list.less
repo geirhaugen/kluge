@@ -1,0 +1,21 @@
+.fancy-list{
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  .trailer(2);
+  li{
+    border-bottom: 3px solid @colorProfile;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 20px;
+    &:nth-child(4n){
+      margin-right: 0;
+    }
+    .trailer(2);
+    @media @medium-up{
+      width: ~"calc(25% - 15px)";
+    }
+  }
+}

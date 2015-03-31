@@ -1,7 +1,7 @@
 
 
-<main class="p-employees">
-    <div class="banner banner--search">
+<div class="bg">
+    <div class="wrapper banner banner--search">
         <div class="banner__container">
             <div class="banner__content banner__content--search">
                 <input type="text" id="search_input" class="banner__input">
@@ -9,18 +9,21 @@
             </div>
         </div>
     </div>
-    <div class="p-employee__filters">
-        <div class="p-employees__filter b-filter">
-            <h3>Kontor</h3>
-            <ul class="b-filter b-filter__list">
+</div>
+
+<div class="bg">
+    <div class="wrapper b-filters">
+        <div class="b-filter">
+            <h3 class="js-toggleNext">Kontor</h3>
+            <ul class="b-filter__list">
                <li class="b-filter__listitem"><input type="checkbox" id="nr11"><label for="nr11" class="label">Stavanger</label></li>
                <li class="b-filter__listitem"><input type="checkbox" id="nr12"><label for="nr12" class="label">Oslo</label></li>
                <li class="b-filter__listitem"><input type="checkbox" id="nr13"><label for="nr13" class="label">Bergen</label></li>
                <li class="b-filter__listitem"><input type="checkbox" id="nr14"><label for="nr14" class="label">Hamar</label></li>
             </ul>
         </div>
-        <div class="p-employees__filter b-filter">
-            <h3>Bransjer</h3>
+        <div class="b-filter">
+            <h3 class="js-toggleNext">Bransjer</h3>
             <ul class="b-filter__list">
                 <li class="b-filter__listitem"><input type="checkbox" id="nr1"><label for="nr1" class="label">Bank og finansiering</label></li>
                 <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr2" disabled><label for="nr2" class="label">Bygg og enterprise</label></li>
@@ -30,8 +33,8 @@
                 <li class="b-filter__listitem"><input type="checkbox" id="nr6"><label for="nr6" class="label">Shipping</label></li>
             </ul>
         </div>
-        <div class="p-employees__filter b-filter">
-            <h3>Stilling</h3>
+        <div class="b-filter">
+            <h3 class="js-toggleNext">Stilling</h3>
             <ul class="b-filter__list">
                 <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr21"><label for="nr21" class="label">Stilling</label></li>
                 <li class="b-filter__listitem"><input type="checkbox" id="nr22"><label for="nr22" class="label">Partner</label></li>
@@ -40,11 +43,11 @@
                 <li class="b-filter__listitem b-filter__listitem--disabled"><input type="checkbox" id="nr25"><label for="nr25" class="label">Advokat</label></li>
                 <li class="b-filter__listitem"><input type="checkbox" id="nr26"><label for="nr26" class="label">Advokatfullmektig</label></li>
                 <li class="b-filter__listitem"><input type="checkbox" id="nr27"><label for="nr27" class="label">Juridisk assistent</label></li>
-                <li class="b-filter__listitem"><input type="checkbox" id="nr28"><label for="nr28" class="label">dministrasjon</label></li>
+                <li class="b-filter__listitem"><input type="checkbox" id="nr28"><label for="nr28" class="label">Administrasjon</label></li>
             </ul>
         </div>
-        <div class="p-employees__filter b-filter">
-            <h3>Fag</h3>
+        <div class="b-filter">
+            <h3 class="js-toggleNext">Fag</h3>
             <ul class="b-filter__list">
                 <li class="b-filter__listitem"><input type="checkbox" id="nr41"><label for="nr41" class="label">Corporate/M&A</label></li>
                 <li class="b-filter__listitem"><input type="checkbox" id="nr42"><label for="nr42" class="label">Bank og finansiering</label></li>
@@ -55,7 +58,7 @@
                 <li class="b-filter__listitem"><input type="checkbox" id="nr47"><label for="nr47" class="label">Offentlig sektor</label></li>
             </ul>
         </div>
-        <div class="p-employees__filter b-filter">
+        <div class="b-filter">
             <ul class="b-filter__list">
                 <li class="b-filter__listitem"><input type="checkbox" id="nr48"><label for="nr48" class="label">Gransking</label></li>
                 <li class="b-filter__listitem"><input type="checkbox" id="nr49"><label for="nr49" class="label">Tvisteløsning, mekling og prosedyre</label></li>
@@ -68,10 +71,11 @@
             </ul>
         </div>
     </div>
-
-    <section class="employee-grid">
+</div>
+<div class="bg">
+    <section class="wrapper employees-grid">
        <h3>14 Ansatte</h3>
-        <div class="employee-grid__container" id="search_list">
+        <div class="employees-grid__container" id="search_list">
             <%- partial('pageteaserPerson2.ejs') %>
             <%- partial('pageteaserPerson.ejs') %>
             <%- partial('pageteaserPerson.ejs') %>
@@ -80,5 +84,6 @@
             <%- partial('pageteaserPerson.ejs') %>
         </div>
     </section>
+</div>
     <%- partial('pageteaserKlugeprat.ejs') %>
-</main>
+

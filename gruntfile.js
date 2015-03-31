@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         watch: {
           styles: {
             files: ['less/**/*.less', 'Views/**/*.ejs'], // which files to watch
-            tasks: ['less', 'ejs:all', 'copy:img', 'copy:gfx', 'copy:js', 'copy:fonts'],
+            tasks: ['less', 'ejs:all', 'copy:img', 'copy:gfx', 'copy:js', 'autoprefixer:single', 'copy:fonts'],
             options: {
               nospawn: true
             }
@@ -70,6 +70,15 @@ module.exports = function(grunt) {
                 }
             }
         },
+        autoprefixer: {
+            single: {
+                options: {
+                    browsers: ['last 2 versions', 'ie 8', 'ie 9']
+                },
+                src: 'build/css/screen.css',
+                dest: 'build/css/screen-auto.css'
+            }
+        },
         ejs: {
             all: {
                 src: ['*.ejs'],
@@ -90,6 +99,12 @@ module.exports = function(grunt) {
                     "employees" :[
                         '_content/mainheader',
                         '_content/employees',
+                        '_content/mainFooter'
+                    ],
+                    "expertice" : [
+                        '_content/mainheader',
+                        '_content/banner.ejs',
+                        '_content/expertice_content',
                         '_content/mainFooter'
                     ],
                     "styleguidemodules" : [
@@ -113,8 +128,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-ejs-locals');
     grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
 
     
-    grunt.registerTask('default', [  'browserSync', 'notify:less', 'watch']);
+    grunt.registerTask('default', [  'notify:less', 'watch']);
 };

@@ -1,30 +1,32 @@
-<header class="main-header" role="banner">
+<button id="menuToggler" class="btn btn--menuToggler icon-menu js-btn-menuToggler" role="button" aria-controls="main-nav__list" aria-haspopup="true">Meny</button>
 
-    <div class="masthead">
-        <div class="masthead__logo">
-            <a href="index.html" class="blockLink">
-                <h1 class="masthead__title" aria-hidden="false">KLUGE</h1>
-                <img src="gfx/Kluge_logo.png">
-            </a>
+<div class="bg">
+    <header class="main-header wrapper" role="banner">
+        <div class="masthead">
+            <div class="masthead__logo">
+                <a href="index.html" class="blockLink">
+                    <h1 class="masthead__title" aria-hidden="false">KLUGE</h1>
+                    <img src="gfx/Kluge_logo.png">
+                </a>
+            </div>
         </div>
-    </div>
+        <div class="nav-container js-mainNavigationList">
+            <nav class="header-nav" aria-labelledby="menuToggler" role="navigation">
+                <ul id="header-nav__list" class="header-nav__list js-mainNavigationList" role="menubar" aria-hidden="true">
+                    <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="ansatte.html">Folk</a></li>
+                    <li class="header-nav__listitem current" role="menuitem"><a class="header-nav__link" href="expertice.html">Spesialisering</a></li>
+                    <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="">Karriere</a></li>
+                    <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="">Klugeprat</a></li>
+                </ul>
+            </nav>
 
-    <nav class="header-subnav" aria-labelledby="menuToggler" role="navigation">
-        <ul id="header-subnav__list" class="header-subnav__list js-mainNavigationList" role="menubar" aria-hidden="true">
-            <li class="header-subnav__listitem" role="menuitem"><a class="header-subnav__link" href="">Aktuelt</a></li>
-            <li class="header-subnav__listitem current" role="menuitem"><a class="header-subnav__link" href="">Om Kluge</a></li>
-            <li class="header-subnav__listitem" role="menuitem"><a class="header-subnav__link" href="">Søk</a></li>
-        </ul>
-    </nav>
-
-
-    <nav class="header-nav" aria-labelledby="menuToggler" role="navigation">
-        <button id="menuToggler" class="btn btn--menuToggler js-btn-menuToggler" role="button" aria-controls="main-nav__list" aria-haspopup="true">Meny</button>
-        <ul id="header-nav__list" class="header-nav__list js-mainNavigationList" role="menubar" aria-hidden="true">
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="ansatte.html">Folk</a></li>
-            <li class="header-nav__listitem current" role="menuitem"><a class="header-nav__link" href="">Spesialisering</a></li>
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="">Karriere</a></li>
-            <li class="header-nav__listitem" role="menuitem"><a class="header-nav__link" href="">Klugeprat</a></li>
-        </ul>
-    </nav>
-</header>
+            <nav class="header-subnav" aria-labelledby="menuToggler" role="navigation">
+                <ul id="header-subnav__list" class="header-subnav__list js-mainNavigationList" role="menubar" aria-hidden="true">
+                    <li class="header-subnav__listitem" role="menuitem"><a class="header-subnav__link" href="">Aktuelt</a></li>
+                    <li class="header-subnav__listitem current" role="menuitem"><a class="header-subnav__link" href="">Om Kluge</a></li>
+                    <li class="header-subnav__listitem" role="menuitem"><a class="header-subnav__link" href="">Søk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>

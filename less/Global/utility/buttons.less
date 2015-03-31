@@ -14,4 +14,38 @@
 
 .btn--menuToggler{
   .hide-for-large();
+  background-color: rgba(255,255,255,1);
+  position: fixed;
+  bottom: @basePadding;
+  right: @basePadding/2;
+  border-radius: 50%;
+  height: 50px;
+  width:50px;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  font-size: 0;
+  padding: 0;
+  //transition: all .5s;
+  &:before{
+    font-size: 36px;
+  }
+  &:focus{
+    outline: none;
+  }
+  &.activated{
+    box-shadow: none;
+    color: @colorProfile;
+  }
+}
+
+
+[class*=share]{
+  font-size: 0;
+  &:before{
+    font-size: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: @basePadding/2;
+  }
 }

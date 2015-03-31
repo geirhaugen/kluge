@@ -74,12 +74,18 @@ $().ready(function () {
         $(".styleguide").toggleClass("viewHtml");
     });
 
+
+    $(".js-toggleNext").click(function () {
+        $(this).next().toggleClass("activated");
+    });
+
     $(".helper-toggler").click(function () {
         $(this).parent().parent().toggleClass("viewHelpers");
     });
 
     $(".js-btn-menuToggler").click(function () {
-        $(".js-mainNavigationList").slideToggle().attr("aria-hidden","false");
+        $(".js-mainNavigationList").toggleClass("activated").attr("aria-hidden","false");
+        $(this).toggleClass("activated");
     });
 
     $(function() {
