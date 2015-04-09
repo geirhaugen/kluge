@@ -107,6 +107,13 @@ module.exports = function(grunt) {
                         '_content/expertice_content',
                         '_content/mainFooter'
                     ],
+                    "shipping" : [
+                        '_content/mainheader',
+                        '_content/banner-shipping.ejs',
+                        '_content/shipping_content',
+                        '_content/shipping_people',
+                        '_content/mainFooter'
+                    ],
                     "styleguidemodules" : [
                         '_content/mainheader',
                         '_content/banner.ejs',

@@ -4,11 +4,16 @@
   color: white;
   @media @small{
     min-height: 100px;
+    color: @colorText;
+    border-bottom: 1px solid @colorBorderLight;
   }
 }
 
 .banner__image{
   display: block;
+  @media @small{
+      margin-bottom: @basePadding;
+  }
 }
 
 .banner__container{
@@ -21,6 +26,9 @@
   left: 0;
   bottom: 0;
   right: 0;
+  @media @small{
+  position: static;
+  }
 }
 
 .banner__content{
@@ -31,7 +39,13 @@
   text-align: center;
   padding: @basePadding;
   @media @small{
+     text-align: left;
       padding: 0 @basePadding/2;
+      position: static;
+      transform: translateY(0);
+  }
+  p{
+    font-weight: 700;
   }
 }
 

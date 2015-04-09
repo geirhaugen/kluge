@@ -1,13 +1,13 @@
 .b-filters{
   @media @large{
     display: flex;
+    justify-content: space-between;
   }
 }
 
 .b-filter{
   @media @large{
-    width:20%;
-    flex-grow: 1;
+    width:~"calc(20% - 11px)";
   }
   @media @medium-down{
     h3{
@@ -24,7 +24,6 @@
       }
     }
   }
-
 }
 
 .b-filter__list{
@@ -47,25 +46,25 @@
 
 
 .b-filter__listitem{
+  margin-bottom: @baseLineHeight/4;
   input{
     position: absolute;
     left: -9999px;
-
   }
-  margin-bottom: @baseLineHeight/4;
   .label{
     display: inline-block;
     position: relative;
     padding-left: @basePadding/2;
     padding-right: 15px;
+    line-height: 1rem;
     &:before{
       content:"";
       display: block;
-      top:5px;
-      bottom: 5px;
+      top:0;
+      bottom: 0;
       left: 0px;
       background-color: @colorProfile;
-      background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerine), color-stop(70%, @colorTangerine), color-stop(70%, white), to(white));
+      //background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerine), color-stop(70%, @colorTangerine), color-stop(70%, white), to(white));
       background-size: auto 36px;
       width: 6px;
       position: absolute;
@@ -83,7 +82,8 @@
   }
   input:focus + label{
     &:before{
-      background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerineDark), color-stop(70%, @colorTangerineDark), color-stop(70%, white), to(white));
+      background-color: @colorProfile;
+      //background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerineDark), color-stop(70%, @colorTangerineDark), color-stop(70%, white), to(white));
       background-size: auto 36px;
       @media @medium-down{
         background-size: auto 27px;
@@ -100,10 +100,11 @@
       }
     }
     input:checked + .label{
-      color: white;
+      //color: white;
       &:before{
         width:100%;
-        background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerineDark), color-stop(70%, @colorTangerineDark), color-stop(70%, white), to(white));
+        background-color: @colorProfile;
+        //background: -webkit-gradient(linear, left top, left bottom, from(@colorTangerineDark), color-stop(70%, @colorTangerineDark), color-stop(70%, white), to(white));
         background-size: auto 36px;
         @media @medium-down{
           background-size: auto 27px;
@@ -116,6 +117,6 @@
 .b-filter__listitem--disabled{
   opacity: .5;
   .label:before{
-    background: @colorJudge;
+    //background: @colorJudge;
   }
 }
