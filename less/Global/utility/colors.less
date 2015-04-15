@@ -9,3 +9,17 @@
 .bg--gondola{
   background-color: @colorGondola;
 }
+
+.u-square{
+  position: relative;
+  margin-top: @basePadding;
+  &:before{
+    content: '';
+    background-color: @colorProfile;
+    width: 112px;
+    height: @baseLineHeight;
+    position: absolute;
+    top: -@baseLineHeight*2;
+    left:0;
+  }
+}

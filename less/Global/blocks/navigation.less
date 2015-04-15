@@ -2,6 +2,7 @@
 
 .main-header{
   position: relative;
+  color: @colorGondola;
 }
 
 @media @large{
@@ -10,11 +11,9 @@
       bottom:0;
       right: @basePadding;
   }
-
   .header-nav__list{
       text-align: right;
   }
-
   .header-nav__listitem{
     list-style-type: none;
       display: inline-block;
@@ -31,10 +30,25 @@
   .header-subnav{
       position: absolute;
       right: @basePadding;
+    a{
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
   .header-subnav__list{
       text-align: right;
+  }
 
+  .header-subnav__lang{
+    color: @colorZorba;
+    &:first-child{
+      padding-left: 10px;
+      border-left: 1px solid @colorZorba;
+    }
+    &.active{
+      color: @colorJudge;
+    }
   }
   .header-subnav__listitem{
       display: inline-block;
@@ -42,7 +56,6 @@
       .font(@fontSize-small);
   }
 }
-
 @media @medium-down{
   .nav-container{
     background-color: @colorProfile;

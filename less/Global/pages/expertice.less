@@ -1,5 +1,5 @@
 .expertice{
-  padding-top: @basePadding*2;
+  padding-top: @basePadding*4;
   padding-bottom: @basePadding*2;
 }
 
@@ -42,8 +42,10 @@
   }
 }
 .specialists_klugeprat{
-  background-color: @colorCorn;
-  padding: @basePadding;
+  > .bg--corn{
+    background-color: @colorCorn;
+    padding: @basePadding;
+  }
   @media @large{
     width: ~"calc(50% - 15px)";
     margin-left: 15px;
@@ -58,5 +60,11 @@
   }
   .pt-klugeprat{
     width: 100%;
+  }
+  .b-klugeprat__heading{
+    display: none;
+  }
+  .pt-klugeprat__title{
+    .font(@fontSize-large, 1.3);
   }
 }

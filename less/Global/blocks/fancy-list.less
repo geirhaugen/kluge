@@ -10,9 +10,25 @@
     flex-direction: column;
     justify-content: flex-end;
     margin-right: 20px;
+    position: relative;
     &:nth-child(4n){
       margin-right: 0;
     }
+    @media @large{
+      &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        width:18px;
+        height:20px;
+        background-image: url("../gfx/arrow-right.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        right:0;
+        bottom: 10px;
+      }
+    }
+
     .trailer(2);
     @media @medium-up{
       width: ~"calc(25% - 15px)";

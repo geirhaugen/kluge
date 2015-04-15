@@ -28,12 +28,16 @@ jQuery.fn.fastLiveFilter = function(list, options) {
     var len = lis.length;
     var oldDisplay = len > 0 ? lis[0].style.display : "block";
     callback(len); // do a one-time callback on initialization to make sure everything's in sync
-
     input.change(function() {
         // var startTime = new Date().getTime();
         var filter = input.val().toLowerCase();
         var li, innerText;
         var numShown = 0;
+
+        $(".b-filters").slideUp();
+        $("img.lazy").lazyload();
+        $(".filter-toggler").addClass("activated");
+
         for (var i = 0; i < len; i++) {
             li = lis[i];
             innerText = !options.selector ?
@@ -41,30 +45,40 @@ jQuery.fn.fastLiveFilter = function(list, options) {
                 $(li).find(options.selector).text();
 
             if (innerText.toLowerCase().indexOf(filter) >= 0) {
+
                 if (li.style.display == "none") {
                     li.style.display = oldDisplay;
+
                 }
                 numShown++;
             } else {
                 if (li.style.display != "none") {
                     li.style.display = "none";
+
                 }
             }
         }
         callback(numShown);
+        $('.number-employees').html(numShown);
         // var endTime = new Date().getTime();
-        // console.log('Search for ' + filter + ' took: ' + (endTime - startTime) + ' (' + numShown + ' results)');
+
+        console.log('Search for ' + filter + ' took: ' +  ' (' + numShown + ' results)');
+
         return false;
     }).keydown(function() {
         clearTimeout(keyTimeout);
+
         keyTimeout = setTimeout(function() {
             if( input.val() === lastFilter ) return;
             lastFilter = input.val();
             input.change();
         }, timeout);
     });
+
     return this; // maintain jQuery chainability
 };
+
+
 
 
 $().ready(function () {
@@ -74,8 +88,25 @@ $().ready(function () {
         $(".styleguide").toggleClass("viewHtml");
     });
 
+    $("button[href^=#]").click(function(e) {
+        e.preventDefault();
+        var dest = $(this).attr('href');
+        console.log(dest);
+        $('html,body').animate({ scrollTop: $(dest).offset().top }, 'slow');
+        $("#employees").focus();
+    });
+
+    $(function() {
+        //$("img.lazy").lazyload();
+    });
+
+    $(".filter-toggler").click(function () {
+        $(".b-filters").slideToggle();
+        $(this).toggleClass("activated");
+    });
 
     $(".js-toggleNext").click(function () {
+        $(this).toggleClass("activated");
         $(this).next().toggleClass("activated");
     });
 
@@ -90,6 +121,7 @@ $().ready(function () {
 
     $(function() {
         $('#search_input').fastLiveFilter('#search_list');
+
     });
 
     // Add a markup block after each live example container

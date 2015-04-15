@@ -1,0 +1,21 @@
+blockquote{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  &.jumbo{
+    color: @colorJudge;
+    padding: @basePadding*4 0 0 0;
+    margin: 0 @basePadding*2;
+    .font(@fontSize-largest, 2);
+  }
+}
+
+cite{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-style: normal;
+  .font(@fontSize-small);
+  font-weight: 700;
+  margin-bottom: @basePadding*4;
+}

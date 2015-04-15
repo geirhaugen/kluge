@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         },
         watch: {
           styles: {
-            files: ['less/**/*.less', 'Views/**/*.ejs'], // which files to watch
+            files: ['less/**/*.less', 'Views/**/*.ejs', 'js/**/*'], // which files to watch
             tasks: ['less', 'ejs:all', 'copy:img', 'copy:gfx', 'copy:js', 'autoprefixer:single', 'copy:fonts'],
             options: {
               nospawn: true
@@ -112,6 +112,7 @@ module.exports = function(grunt) {
                         '_content/banner-shipping.ejs',
                         '_content/shipping_content',
                         '_content/shipping_people',
+                        '_content/shipping_bigquote',
                         '_content/mainFooter'
                     ],
                     "styleguidemodules" : [

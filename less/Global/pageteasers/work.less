@@ -1,0 +1,30 @@
+.pageteasers-large{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: @basePadding*3;
+  .pt-work{
+    width:~"calc(50% - 15px)";
+    padding-left: 130px;
+    &:first-of-type{
+      margin-right: 15px;
+    }
+    &:last-of-type{
+      margin-left: 15px;
+    }
+  }
+}
+
+.pt-work__title{
+  .font(@fontSize-large, 1.5);
+  margin-bottom: 0;
+  &.u-square{
+    &:before{
+      top: 5px;// lineheight - (lineheight - fontsize)/2
+      left: -130px;
+    }
+  }
+}
+
+.pt-work__customer{
+  .font(@fontSize-small);
+}
