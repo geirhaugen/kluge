@@ -1,7 +1,8 @@
 h1,
 .h1{
   margin:0;
-  .font(@fontSize-larger, 2);
+  font-weight: 200;
+  .font(@fontSize-larger, 1.5);
   .trailer();
   &.jumbo{
     .font(@fontSize-jumbo, 3);
@@ -18,5 +19,10 @@ h3,
   width: 100%;
 }
 h4{
+  margin: 0;
+  .font(@fontSize-small)
+}
 
+.u-thin{
+  font-weight: 200;
 }

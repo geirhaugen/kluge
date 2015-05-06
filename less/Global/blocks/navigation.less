@@ -58,33 +58,42 @@
 }
 @media @medium-down{
   .nav-container{
-    background-color: @colorProfile;
+    background-color: white;
     position: fixed;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     left:~"calc(100% - 62px)";
     top: ~"calc(100% - 75px)";
     bottom: @basePadding;
     right: @basePadding/2;
+    //bottom: -100%;
     z-index: 10;
     padding-top: 0;
     padding-bottom: @basePadding/2;
-    transition: left .5s, right .2s, top .5s, bottom .2s, border-radius .5s;
+    transition: left .5s @d, right .2s @d, top .5s @d, bottom .2s @d, border-radius .5s @d;
     border-radius: 25px;
-    opacity: 0;
+    overflow: hidden;
+    //opacity: 0;
     &.activated{
-      left:0;
-      top:0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0;
+      color: white;
+      left:@basePadding/2;
+      top: @basePadding/2;
+      right: @basePadding/2;
+      bottom: @basePadding;
+      border-radius: 0 0 25px 0;
       opacity: 1;
       overflow-y: auto;
+      .header-nav{
+
+      }
+      .header-subnav{
+
+      }
     }
   }
   .header-nav{
-    .trailer-border(1);
+    .trailer-border(1, white);
     padding-top: @basePadding;
-    background-color: @colorProfile;
+    background-color: white;
   }
   .header-nav__listitem{
     list-style-type: none;

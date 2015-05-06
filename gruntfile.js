@@ -65,8 +65,14 @@ module.exports = function(grunt) {
             options: {
                 watchTask: true,
                 ghostmode: false,
+                injectChanges: false,
                 server: {
                     baseDir: "build/"
+                },
+                ghostMode: {
+                    clicks: true,
+                    forms: true,
+                    scroll: false
                 }
             }
         },
@@ -91,7 +97,6 @@ module.exports = function(grunt) {
                     "frontpage" : [
                         '_content/mainheader',
                         '_content/banner',
-                        '_content/article',
                         '_content/frontpageNews',
                         '_content/grid',
                         '_content/mainFooter'
@@ -113,6 +118,12 @@ module.exports = function(grunt) {
                         '_content/shipping_content',
                         '_content/shipping_people',
                         '_content/shipping_bigquote',
+                        '_content/mainFooter'
+                    ],
+                    "article_noimage" : [
+                        '_content/mainheader',
+                        '_content/article_noimage',
+                        '_content/pageteaserKlugeprat',
                         '_content/mainFooter'
                     ],
                     "styleguidemodules" : [
@@ -141,4 +152,5 @@ module.exports = function(grunt) {
 
     
     grunt.registerTask('default', [  'notify:less', 'watch']);
+    grunt.registerTask('sync', [  'browserSync', 'notify:less', 'watch']);
 };

@@ -1,6 +1,7 @@
 .employee-grid .pt-employee{
   margin-bottom: @basePadding*2;
 }
+
 .pt-employee__name{
   .trailer(.5);
 }
@@ -17,4 +18,43 @@
 }
 .pt-employee__tel{
   display: block;
+}
+
+.pt-employee__photo {
+  transition: filter 1s ease;
+  -webkit-transition: -webkit-filter 1s ease;
+  filter: blur(0px) contrast(1) brightness(1);
+  -webkit-filter: blur(0px) contrast(1) brightness(1);
+
+}
+.pt-employee__photo:hover {
+  filter: blur(0px) contrast(1) brightness(1.1);
+  -webkit-filter: blur(0px) contrast(1.2) brightness(1.1);
+}
+
+
+
+
+.pt-employee__actions{
+  display: flex;
+  position: absolute;
+  bottom: -@basePadding*2;
+  transition: bottom .5s;
+  width:100%;
+  > *{
+    width: 50%;
+  }
+}
+
+.pt-employee__top{
+  overflow: hidden;
+  position: relative;
+  img{
+    display: block;
+  }
+  &:hover{
+    .pt-employee__actions{
+      bottom:0;
+    }
+  }
 }

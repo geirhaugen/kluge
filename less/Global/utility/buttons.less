@@ -1,4 +1,4 @@
-.btn{
+.btn, button{
   -moz-appearance: none;
   -webkit-appearance: none;
   background-color: @colorProfile;
@@ -10,6 +10,12 @@
   color: @colorText;
   background-color: white;
   border: 1px solid @colorBorderLight;
+}
+
+.btn--trans{
+  background-color: fade(@colorJudge, 50%);
+  border: 0;
+  color: white;
 }
 
 .btn--menuToggler{
@@ -31,7 +37,7 @@
     display: block;
     font-size: 24px;
     transform: rotateZ(45deg);
-    transition: transform .5s;
+    transition: transform .2s;
   }
   &:focus{
     outline: none;

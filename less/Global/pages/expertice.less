@@ -5,22 +5,33 @@
 
 .expertice__content{
   @media @large{
-    display: flex;
-    justify-content: space-between;
+    //display: flex;
+    //justify-content: space-between;
+    .row();
   }
 
 }
 .expertice__main{
   @media @large{
-    width: ~"calc(50% - 15px)";
+    //width: ~"calc(50% - 15px)";
+  }
+  @media @large{
+    .column(5);
+  }
+  @media @medium-down{
+    .trailer-border();
   }
 }
 
 .expertice__aside{
   @media @large{
-    width: ~"calc(50% - 15px)";
+    //width: ~"calc(50% - 15px)";
   }
-  padding: 0 10%;
+  @media @large{
+    .column(2);
+    .push(1);
+  }
+
 }
 .specialists{
   @media @large{

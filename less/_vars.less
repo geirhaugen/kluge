@@ -80,6 +80,21 @@
 @medium-down: ~"  (max-width: 50em)";
 @media-medium: ~"@media screen and (min-width: 60.0625em)";
 
+
+// Example usage:
+// @include animation(animName, duration, ease)
+
+// Easings
+@easeInOutQuart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+@easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+@easeOutQuart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+@easeInQuart: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+@easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+// Defining a "default" easing
+@d: @easeInOutQuart;
+
+
 // FONT IMPORT
 // Font import if using local font files
 .fontimport(@filename, @fontweight, @fontstyle){
@@ -135,12 +150,12 @@
   }
 }
 
+// For overflows
 .ellipsis() {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
 
 // CONTAINER
 // Adds max widths and padding to an element. Wrap a row in a container to make a grid
@@ -167,12 +182,21 @@
 
 // TRAILING BORDER
 // Adds 1px border and a baselineunit padding and margin after an element
-.trailer-border(@numberOfUnits: 1, @currentBorderColor: @colorBorderLight){
+.trailer-border(@numberOfUnits: 1, @currentBorderColor: @colorBorderDark){
   margin-bottom: (@baseLineHeight/@baseFontSize) * @numberOfUnits * 1rem;
   padding-bottom: ((@baseLineHeight/@baseFontSize) * @numberOfUnits * 1rem) - 0.0625em;
   border-bottom: 0.0625em solid @currentBorderColor;
   @media @small { // SMALL BREAKPOINT
     margin-bottom: (@baseLineHeightMobile/@baseFontSizeMobile) * 1rem;
+  }
+}
+
+.leading-border(@numberOfUnits: 1, @currentBorderColor: @colorBorderDark){
+  margin-top: (@baseLineHeight/@baseFontSize) * @numberOfUnits * 1rem;
+  padding-top: ((@baseLineHeight/@baseFontSize) * @numberOfUnits * 1rem) - 0.0625em;
+  border-top: 0.0625em solid @currentBorderColor;
+  @media @small { // SMALL BREAKPOINT
+    margin-top: (@baseLineHeightMobile/@baseFontSizeMobile) * 1rem;
   }
 }
 
@@ -185,13 +209,14 @@
 // Code helpers
 // ****************************
 .baseline() when (@debug = true){
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.0)), color-stop(95%, rgba(255,255,255,.0)), color-stop(95%, #4affff), to(#4affff));
+  //background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.0)), color-stop(95%, rgba(255,255,255,.0)), color-stop(95%, #4affff), to(#4affff));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.0)), color-stop(49%, rgba(255,255,255,.0)), color-stop(49%, #8bf8ff), color-stop(50%, rgba(255,255,255,.0)), color-stop(98%, rgba(255,255,255,.0)), color-stop(98%, #4affff), to(#4affff));
   background: -moz-linear-gradient(top, #fcfcfc, #fcfcfc 95%, #4affff 95%, #4affff);
   border-width: 1px 1px 0 1px;
   border-color: #4affff;
   border-style: solid;
   @media @medium-up{
-    background-size: auto @baseLineHeight/2;
+    background-size: auto @baseLineHeight;
   }
   @media @small{
     background-size: auto @baseLineHeightMobile/2;
@@ -304,4 +329,16 @@ body{
 }
 .pull(@offset:1) {
   margin-right: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}
+
+@flexcolGutter: 20px;
+
+.last(){
+  padding-right: 0;
+}
+
+.flexcol(@y, @align: left,  @gutter: @flexcolGutter){
+  width: ((100%/@columns)*@y);
+  padding-right: @flexcolGutter;
+  float:@align;
 }

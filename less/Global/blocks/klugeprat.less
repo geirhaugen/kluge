@@ -7,13 +7,14 @@
 .b-klugeprat__container{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   h3{
     width:100%;
   }
   .pt-klugeprat{
     margin-bottom: @basePadding;
     @media @medium-up{
-      width:50%;
+      .flexcol(4);
     }
   }
 }
